@@ -79,14 +79,12 @@ public class Tabla extends JFrame {
 	                            JOptionPane.showMessageDialog(null, number + " no es un número primo.");
 	                        }
 	                    } catch (NumberFormatException ex) {
-	                        // No hacer nada si el valor no es un número
 	                    }
 	                }
 	            }
 	        });
 	}
 
-	    // Método para comprobar si un número es primo
 	    private boolean isPrime(int num) {
 	        if (num <= 1) {
 	            return false;
