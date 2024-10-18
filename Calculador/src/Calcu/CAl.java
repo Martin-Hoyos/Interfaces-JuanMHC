@@ -43,7 +43,7 @@ public class CAl extends JFrame {
 	 */
 	public CAl() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 654, 384);
+		setBounds(100, 100, 702, 510);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -228,8 +228,24 @@ public class CAl extends JFrame {
 			            } else {
 			                textField.setText("Error: División por 0");
 			            }
-			        }
-			    }
+			        }  else if (expression.contains("√")) {
+	
+		                String numberStr = expression.replace("√", "").trim();
+		                double number = Double.parseDouble(numberStr);
+		                double resultado = Math.sqrt(number);
+		                textField.setText(String.valueOf(resultado));
+		        }else if (expression.contains("²")) {
+		        	String cuadrado = expression.replace("²", "").trim();
+		        	double number=Double.parseDouble(cuadrado);
+		        	double resultado = number * number;
+		        	textField.setText(String.valueOf(resultado));
+		        }else if(expression.contains("³")) {
+		        	String cuadrado = expression.replace("³", "").trim();
+		        	double number=Double.parseDouble(cuadrado);
+		        	double resultado = number * number* number;
+		        	textField.setText(String.valueOf(resultado));
+		        }
+			}
 		});
         btnNewButton_16.setBounds(435, 28, 89, 23);
         contentPane.add(btnNewButton_16);
@@ -238,6 +254,54 @@ public class CAl extends JFrame {
         textField.setBounds(28, 11, 388, 51);
         contentPane.add(textField);
         textField.setColumns(10);
+        
+        JButton btnNewButton_17 = new JButton("√");
+        btnNewButton_17.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		textField.setText(textField.getText() + "√");
+        	}
+        });
+        btnNewButton_17.setBounds(485, 312, 89, 23);
+        contentPane.add(btnNewButton_17);
+        
+        JButton btnNewButton_18 = new JButton("χ²");
+        btnNewButton_18.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		textField.setText(textField.getText() + "²");
+        	}
+        });
+        btnNewButton_18.setBounds(327, 312, 89, 23);
+        contentPane.add(btnNewButton_18);
+        
+        JButton btnNewButton_19 = new JButton("X³");
+        btnNewButton_19.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		textField.setText(textField.getText() + "³");
+        	}
+        });
+        btnNewButton_19.setBounds(209, 312, 89, 23);
+        contentPane.add(btnNewButton_19);
+        
+        JButton btnNewButton_20 = new JButton("Log");
+        btnNewButton_20.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		String input = textField.getText();
+                
+
+                if (!input.isEmpty()) {
+ 
+                    double number = Double.parseDouble(input);
+                    
+
+                    double logBase10 = Math.log10(number);
+                    
+
+                    textField.setText(String.valueOf(logBase10));
+        	}
+        	}
+        });
+        btnNewButton_20.setBounds(76, 312, 89, 23);
+        contentPane.add(btnNewButton_20);
         
         
         
